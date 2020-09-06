@@ -16,7 +16,7 @@ services:
         soft: -1
         hard: -1
     volumes:
-      - ./esdata:/usr/share/elasticsearch/data
+      - ./esdata:/usr/share/elasticsearch/data:z
     ports:
       - 9200:9200
     networks:
@@ -43,7 +43,7 @@ services:
     command: --default-authentication-plugin=mysql_native_password
     restart: always
     volumes:
-      - ./mysql_db:/var/lib/mysql
+      - ./mysql_db:/var/lib/mysql:z
     environment:
       MYSQL_ROOT_PASSWORD: example
     ports:
@@ -58,7 +58,7 @@ services:
     container_name: yun_mongodb
     hostname: mongodb
     volumes:
-      - ./mongodb:/data/db
+      - ./mongodb:/data/db:z
     restart: always
     expose:
       - 6016
